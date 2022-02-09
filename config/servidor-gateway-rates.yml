@@ -34,6 +34,15 @@ spring:
         filters:
           - RewritePath=/svehicleRates/*, /
           
+      - id: serv-fineRates
+         #lb:// cuando se va a acceder a través de Eureka
+        uri: lb://service-fineRates #http://localhost:8080
+        predicates:
+          - Path=/sfineRates/**
+        filters:
+          - RewritePath=/sfineRates/*, /
+
+          
       - id: serv-mailRates
           #lb:// cuando se va a acceder a través de Eureka
         uri: lb://service-mailRates #http://localhost:8080
